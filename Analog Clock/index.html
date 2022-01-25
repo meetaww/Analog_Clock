@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="" href="/blank.js">
+</head>
+<body>
+    <div class="clock">
+        <div class="center-nut"></div>
+        <div class="center-nut2"></div>
+        <div class="indicators">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="sec-hand">
+            <div class="sec"></div>
+        </div>
+
+        <div class="min-hand">
+            <div class="min"></div>
+        </div>
+
+        <div class="hr-hand">
+            <div class="hr"></div>
+        </div>
+    </div>
+
+    <script>
+        const sec = document.querySelector(".sec");
+        const min = document.querySelector(".min");
+        const hr = document.querySelector(".hr");
+
+        setInterval( () => {
+            let time = new Date();
+            let secs = time.getSeconds() * 6;
+            let mins = time.getMinutes() * 6;
+            let hrs = time.getHours() * 30;
+            
+            sec.style.transform = `rotateZ(${secs}deg)`;
+            min.style.transform = `rotateZ(${mins}deg)`;
+            hr.style.transform = `rotateZ(${hrs + (mins/12)}deg)`;
+        },1000);
+    </script>
+</body>
+</html>
